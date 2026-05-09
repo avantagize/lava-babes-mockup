@@ -124,8 +124,8 @@ function MidSection() {
           <div className="grid grid-cols-2 gap-4 md:gap-5">
             {drinks.map((d) => (
               <article key={d.name} className="bg-card border border-border rounded-2xl p-4 text-center shadow-deep hover:-translate-y-1 transition-transform">
-                <div className="aspect-square mb-3 rounded-xl overflow-hidden bg-[var(--color-sand)]">
-                  <img src={d.img} alt={d.name} className="w-full h-full object-cover" width={512} height={512} loading="lazy" />
+                <div className="aspect-square mb-3 rounded-xl overflow-hidden flex items-center justify-center p-3 bg-[color:color-mix(in_oklab,var(--teal-deep)_72%,black)]">
+                  <img src={d.img} alt={d.name} className="w-full h-full object-contain" width={512} height={512} loading="lazy" />
                 </div>
                 <h3 className="font-display text-sm md:text-base text-[var(--color-ember)] uppercase tracking-wide">{d.name}</h3>
               </article>
