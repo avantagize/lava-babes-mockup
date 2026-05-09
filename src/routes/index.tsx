@@ -111,8 +111,8 @@ function MidSection() {
           </div>
           <div className="grid grid-cols-4 gap-3 md:gap-4 mt-8">
             {thumbs.map((t) => (
-              <div key={t.alt} className="aspect-square rounded-xl overflow-hidden border-2 border-[var(--color-ember)]/40 bg-card shadow-deep">
-                <img src={t.src} alt={t.alt} className="w-full h-full object-cover" width={512} height={512} loading="lazy" />
+              <div key={t.alt} className="aspect-square rounded-xl overflow-hidden border-2 border-[var(--color-ember)]/40 bg-card shadow-deep p-2 flex items-center justify-center">
+                <img src={t.src} alt={t.alt} className="w-full h-full object-contain" width={512} height={512} loading="lazy" />
               </div>
             ))}
           </div>
