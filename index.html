@@ -8,10 +8,39 @@
   <link rel="icon" type="image/svg+xml" href="/assets/lava_babes_logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
+  <script type="module" src="/main.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAV — sticky
+       ═══════════════════════════════════════════════════ -->
+  <header class="site-header site-header--overlay" id="site-header">
+    <div class="site-header__inner container">
+      <a href="/" class="brand" aria-label="Lava Babes Coffee, home">
+        <img src="/assets/lava_babes_logo.svg" alt="" class="brand__mark" width="52" height="46" />
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation" hidden>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#story">Story</a></li>
+          <li><a class="site-nav__link" href="#drinks">Drinks</a></li>
+          <li><a class="site-nav__link" href="#visit">Visit</a></li>
+          <li><a class="site-nav__link site-nav__link--menu" href="https://summer-dawn-908.linkyhost.page">Menu</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
 
   <!-- ═══════════════════════════════════════════════════
        1 · HERO — full-bleed background image
@@ -22,12 +51,13 @@
       src="/assets/hero_coffee.jpg"
       alt="Coffee being poured into a dark cup with steam rising"
       class="hero__bg"
-      width="1440"
-      height="810"
+      width="1376"
+      height="768"
+      fetchpriority="high"
     />
     <div class="hero__overlay" aria-hidden="true"></div>
 
-    <div class="hero__content">
+    <div class="hero__content container">
       <img
         src="/assets/lava_babes_logo.svg"
         alt="Lava Babes Coffee logo"
@@ -35,20 +65,23 @@
         width="280"
         height="250"
       />
-      <h1 class="hero__title">Lava Babes Coffee</h1>
+      <h1 class="hero__title">
+        <span class="hero__line">Lava Babes</span>
+        <span class="hero__line">Coffee</span>
+      </h1>
       <p class="hero__tagline">Born from fire. Brewed with aloha.</p>
-      <a href="/menu/" class="hero__cta" id="explore-cta">Explore Our Coffee</a>
+      <a href="https://summer-dawn-908.linkyhost.page" class="btn btn--primary btn--lg" id="explore-cta">Explore Our Coffee</a>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════
        2 · OUR STORY — split text / image
        ═══════════════════════════════════════════════════ -->
-  <section class="story" id="story">
-    <div class="story__inner">
-      <div class="story__text">
-        <span class="eyebrow">Our Story</span>
-        <h2 class="story__heading">Where Fire Meets the Cup</h2>
+  <section class="story section" id="story">
+    <div class="story__inner container">
+      <div class="story__text reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2 class="section-title">Where Fire Meets the Cup</h2>
         <p class="story__body">
           Where molten earth meets the Pacific, something extraordinary brews.
           Lava Babes Coffee channels the raw power of Hawai&#699;i&rsquo;s volcanic
@@ -57,14 +90,16 @@
           in equal measure.
         </p>
       </div>
-      <div class="story__image-wrap">
+      <div class="story__image-wrap reveal" style="--i: 1">
         <!-- PLACEHOLDER: replace with real shop photography -->
         <img
           src="/assets/story_beans.jpg"
           alt="Dark roasted coffee beans on a wooden surface"
           class="story__image"
-          width="600"
-          height="800"
+          width="896"
+          height="1200"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>
@@ -73,83 +108,101 @@
   <!-- ═══════════════════════════════════════════════════
        3 · SIGNATURE DRINKS — image-forward card grid
        ═══════════════════════════════════════════════════ -->
-  <section class="drinks" id="drinks">
-    <div class="drinks__inner">
-      <span class="eyebrow">Signature Drinks</span>
-      <h2 class="drinks__heading">From the Crater to Your Cup</h2>
+  <section class="drinks section" id="drinks">
+    <div class="drinks__inner container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Signature Drinks</p>
+        <h2 class="section-title">From the Crater to Your Cup</h2>
+      </header>
 
       <div class="drinks__grid">
 
-        <article class="drink-card">
+        <article class="drink-card reveal" style="--i: 0">
           <!-- PLACEHOLDER: replace with real shop photography -->
-          <div class="drink-card__image-wrap">
-            <img
-              src="/assets/drink_lava_delta.jpg"
-              alt="Lava Delta — iced dark coffee with espresso shot"
-              class="drink-card__image"
-              width="600"
-              height="800"
-            />
-          </div>
-          <div class="drink-card__body">
-            <h3 class="drink-card__name">Lava Delta</h3>
-            <p class="drink-card__desc">Lava Shot and Cold Brew</p>
-            <span class="drink-card__price">$6.25</span>
-          </div>
+          <a class="drink-card__link" href="https://summer-dawn-908.linkyhost.page">
+            <div class="drink-card__image-wrap">
+              <img
+                src="/assets/drink_lava_delta.jpg"
+                alt="Lava Delta — iced dark coffee with espresso shot"
+                class="drink-card__image"
+                width="896"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="drink-card__body">
+              <h3 class="drink-card__name">Lava Delta</h3>
+              <p class="drink-card__desc">Lava Shot and Cold Brew</p>
+              <span class="drink-card__price">$6.25</span>
+            </div>
+          </a>
         </article>
 
-        <article class="drink-card">
+        <article class="drink-card reveal" style="--i: 1">
           <!-- PLACEHOLDER: replace with real shop photography -->
-          <div class="drink-card__image-wrap">
-            <img
-              src="/assets/drink_volcano_mocha.jpg"
-              alt="Volcano Mocha — iced mocha with chocolate drizzle"
-              class="drink-card__image"
-              width="600"
-              height="800"
-            />
-          </div>
-          <div class="drink-card__body">
-            <h3 class="drink-card__name">Volcano Mocha</h3>
-            <p class="drink-card__desc">Iced Coffee, Mocha, Milk, Vanilla, Mocha Drizzle</p>
-            <span class="drink-card__price">$7.75</span>
-          </div>
+          <a class="drink-card__link" href="https://summer-dawn-908.linkyhost.page">
+            <div class="drink-card__image-wrap">
+              <img
+                src="/assets/drink_volcano_mocha.jpg"
+                alt="Volcano Mocha — iced mocha with chocolate drizzle"
+                class="drink-card__image"
+                width="896"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="drink-card__body">
+              <h3 class="drink-card__name">Volcano Mocha</h3>
+              <p class="drink-card__desc">Iced Coffee, Mocha, Milk, Vanilla, Mocha Drizzle</p>
+              <span class="drink-card__price">$7.75</span>
+            </div>
+          </a>
         </article>
 
-        <article class="drink-card">
+        <article class="drink-card reveal" style="--i: 2">
           <!-- PLACEHOLDER: replace with real shop photography -->
-          <div class="drink-card__image-wrap">
-            <img
-              src="/assets/drink_white_hot_lava.jpg"
-              alt="White Hot Lava — creamy white chocolate vanilla latte"
-              class="drink-card__image"
-              width="600"
-              height="800"
-            />
-          </div>
-          <div class="drink-card__body">
-            <h3 class="drink-card__name">White Hot Lava</h3>
-            <p class="drink-card__desc">Iced Coffee, White Chocolate, Vanilla, Milk</p>
-            <span class="drink-card__price">$7.75</span>
-          </div>
+          <a class="drink-card__link" href="https://summer-dawn-908.linkyhost.page">
+            <div class="drink-card__image-wrap">
+              <img
+                src="/assets/drink_white_hot_lava.jpg"
+                alt="White Hot Lava — creamy white chocolate vanilla latte"
+                class="drink-card__image"
+                width="896"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="drink-card__body">
+              <h3 class="drink-card__name">White Hot Lava</h3>
+              <p class="drink-card__desc">Iced Coffee, White Chocolate, Vanilla, Milk</p>
+              <span class="drink-card__price">$7.75</span>
+            </div>
+          </a>
         </article>
 
-        <article class="drink-card">
+        <article class="drink-card reveal" style="--i: 3">
           <!-- PLACEHOLDER: replace with real shop photography -->
-          <div class="drink-card__image-wrap">
-            <img
-              src="/assets/drink_the_meltdown.jpg"
-              alt="The Meltdown — cold brew float with vanilla ice cream"
-              class="drink-card__image"
-              width="600"
-              height="800"
-            />
-          </div>
-          <div class="drink-card__body">
-            <h3 class="drink-card__name">The Meltdown</h3>
-            <p class="drink-card__desc">Cold Brew, Lava Shot, Vanilla, Ice Cream</p>
-            <span class="drink-card__price">$7.25</span>
-          </div>
+          <a class="drink-card__link" href="https://summer-dawn-908.linkyhost.page">
+            <div class="drink-card__image-wrap">
+              <img
+                src="/assets/drink_the_meltdown.jpg"
+                alt="The Meltdown — cold brew float with vanilla ice cream"
+                class="drink-card__image"
+                width="896"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="drink-card__body">
+              <h3 class="drink-card__name">The Meltdown</h3>
+              <p class="drink-card__desc">Cold Brew, Lava Shot, Vanilla, Ice Cream</p>
+              <span class="drink-card__price">$7.25</span>
+            </div>
+          </a>
         </article>
 
       </div>
@@ -159,13 +212,15 @@
   <!-- ═══════════════════════════════════════════════════
        4 · WHAT MAKES US DIFFERENT — icon-led callouts
        ═══════════════════════════════════════════════════ -->
-  <section class="diff" id="different">
-    <div class="diff__inner">
-      <span class="eyebrow">What Makes Us Different</span>
-      <h2 class="diff__heading">Coffee Forged by the Islands</h2>
+  <section class="diff section" id="different">
+    <div class="diff__inner container">
+      <header class="section-head reveal">
+        <p class="eyebrow">What Makes Us Different</p>
+        <h2 class="section-title">Coffee Forged by the Islands</h2>
+      </header>
 
       <div class="diff__grid">
-        <div class="diff__item">
+        <div class="diff__item reveal" style="--i: 0">
           <div class="diff__icon" aria-hidden="true">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
               <path d="M20 4 L24 16 L20 14 L16 16 Z" fill="currentColor" opacity="0.3"/>
@@ -179,7 +234,7 @@
           <p class="diff__desc">Roasted with intensity inspired by Hawai&#699;i&rsquo;s volcanic fire</p>
         </div>
 
-        <div class="diff__item">
+        <div class="diff__item reveal" style="--i: 1">
           <div class="diff__icon" aria-hidden="true">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
               <ellipse cx="20" cy="32" rx="12" ry="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -192,7 +247,7 @@
           <p class="diff__desc">Grown in the rich volcanic soil of the Hawaiian Islands</p>
         </div>
 
-        <div class="diff__item">
+        <div class="diff__item reveal" style="--i: 2">
           <div class="diff__icon" aria-hidden="true">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
               <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -223,13 +278,15 @@
       src="/assets/visit_shop.jpg"
       alt="Tropical coffee shop exterior at dusk with warm string lights"
       class="visit__bg"
-      width="1440"
-      height="810"
+      width="1376"
+      height="768"
+      loading="lazy"
+      decoding="async"
     />
     <div class="visit__overlay" aria-hidden="true"></div>
-    <div class="visit__content">
-      <span class="eyebrow">Visit Us</span>
-      <h2 class="visit__heading">Find Us in Waikīkī</h2>
+    <div class="visit__content container reveal">
+      <p class="eyebrow">Visit Us</p>
+      <h2 class="section-title">Find Us in Waikīkī</h2>
       <address class="visit__address">
         <svg class="visit__pin" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -237,23 +294,43 @@
         </svg>
         <span>140 Lili&#699;uokalani Ave, Honolulu, HI 96815</span>
       </address>
+      <a
+        class="btn btn--primary visit__directions"
+        id="directions-btn"
+        href="https://www.google.com/maps/dir/?api=1&amp;destination=Lava+Babes+Coffee%2C+140+Lili%CA%BBuokalani+Ave%2C+Honolulu%2C+HI+96815"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11 21 3l-8 18-2-8z"/>
+        </svg>
+        Get directions
+        <span class="sr-only">(opens Google Maps in a new tab)</span>
+      </a>
     </div>
   </section>
+
+  </main>
 
   <!-- ═══════════════════════════════════════════════════
        6 · FOOTER — logo mark + address only, no links
        ═══════════════════════════════════════════════════ -->
   <footer class="footer" id="footer">
-    <div class="footer__inner">
+    <div class="footer__inner container">
       <img
         src="/assets/lava_babes_logo.svg"
         alt="Lava Babes Coffee"
         class="footer__logo"
-        width="44"
-        height="40"
+        width="48"
+        height="43"
+        loading="lazy"
       />
       <address class="footer__address">
-        140 Lili&#699;uokalani Ave, Honolulu, HI 96815
+        <svg class="footer__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>140 Lili&#699;uokalani Ave, Honolulu, HI 96815</span>
       </address>
       <p class="footer__copy">&copy; 2026 Lava Babes Coffee</p>
     </div>
